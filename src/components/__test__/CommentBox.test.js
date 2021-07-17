@@ -37,6 +37,9 @@ describe('テキストエリア入力', () => {
 		wrapped.find('textarea').simulate('submit');
 		wrapped.update();
 
+		expect(wrapped.find('textarea').prop('value')).not.toEqual(
+			'new comment'
+		);
 		expect(wrapped.find('textarea').prop('value')).toEqual('');
 	});
 });
