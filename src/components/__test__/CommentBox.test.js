@@ -1,10 +1,15 @@
 import { mount } from 'enzyme';
+import Root from 'components/Root';
 import CommentBox from 'components/CommentBox';
 
 let wrapped;
 
 beforeEach(() => {
-	wrapped = mount(<CommentBox />);
+	wrapped = mount(
+		<Root>
+			<CommentBox />
+		</Root>
+	);
 });
 
 afterEach(() => {
@@ -26,7 +31,6 @@ describe('テキストエリア入力', () => {
 			},
 		});
 		wrapped.update();
-		console.log('入力値', wrapped.find('textarea').prop('value'));
 	});
 
 	it('テキストエリアに入力できる。', () => {
