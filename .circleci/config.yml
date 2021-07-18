@@ -5,4 +5,5 @@ jobs:
             - image: cimg/node:14.10.1
         steps:
             - checkout
+            - run: yarn install
             - run: yarn test
