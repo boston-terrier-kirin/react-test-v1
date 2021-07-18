@@ -5,4 +5,4 @@ jobs:
             - image: cimg/node:14.10.1
         steps:
             - checkout
-            - run: echo "hello world"
+            - run: yarn test
