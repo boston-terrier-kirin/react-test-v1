@@ -10,7 +10,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-	wrapped.mount();
+	wrapped.unmount();
 });
 
 it('CommentBoxを1件表示。', () => {

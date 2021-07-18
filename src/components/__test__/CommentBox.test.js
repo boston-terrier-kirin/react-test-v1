@@ -8,7 +8,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-	wrapped.mount();
+	wrapped.unmount();
 });
 
 describe('テキストエリア初期値', () => {
