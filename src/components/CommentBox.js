@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { saveComment } from 'actions/commentAction';
 
 const CommentBox = () => {
+	const dispatch = useDispatch();
 	const [comment, setComment] = useState('');
 
 	const handleChange = (event) => {
@@ -9,6 +12,7 @@ const CommentBox = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		dispatch(saveComment(comment));
 		setComment('');
 	};
 
