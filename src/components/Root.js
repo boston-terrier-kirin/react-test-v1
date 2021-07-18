@@ -5,17 +5,20 @@ import logger from 'redux-logger';
 import commentsReducer from 'reducers/commentsReducer';
 
 const middlewares = [];
-
 if (process.env.NODE_ENV === 'development') {
 	middlewares.push(logger);
 }
-const store = createStore(
-	combineReducers({ comments: commentsReducer }),
-	applyMiddleware(...middlewares)
-);
 
 const Root = (props) => {
-	return <Provider store={store}>{props.children}</Provider>;
+	const { children, initialState = {} } = props;
+
+	const store = createStore(
+		combineReducers({ comments: commentsReducer }),
+		initialState,
+		applyMiddleware(...middlewares)
+	);
+
+	return <Provider store={store}>{children}</Provider>;
 };
 
 export default Root;
